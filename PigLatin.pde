@@ -27,7 +27,6 @@ String[] searchVowels = {"a","e","i","o","u","A","E","I","O","U"};
   }
   return -1;
 }
-
 public String pigLatin(String sWord)
 //precondition: sWord is a valid String of length greater than 0
 //postcondition: returns the pig latin equivalent of sWord
@@ -54,3 +53,6 @@ public String pigLatin(String sWord)
 		return "ERROR!";
 	}
 }
+//use split the function to seperate the big chunks of line into smaller lines and use pig latin to 
+//translate from that, after that the translated text will be put back together
+//
