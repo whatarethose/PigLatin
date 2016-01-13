@@ -3,8 +3,15 @@ import java.util.*;
 public void setup() {
 	String lines[] = loadStrings("LowellHymn.txt");
 	System.out.println("there are " + lines.length + " lines");
-	for (int i = 0 ; i < lines.length; i++) {
-	  System.out.println(pigLatin(lines[i]));
+	for (int i = 0 ; i < lines.length; i++) 
+	{	
+		String[] parts = lines[i].split(" ");
+		for(int a = 0; a < parts.length;a++)
+		{
+			parts[a]=pigLatin(parts[a]);
+		}
+		System.out.println(parts[1]);
+	 	//System.out.println(pigLatin(lines[i]));
 	}
 }
 public void draw()
