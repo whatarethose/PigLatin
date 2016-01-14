@@ -5,12 +5,14 @@ public void setup() {
 	System.out.println("there are " + lines.length + " lines");
 	for (int i = 0 ; i < lines.length; i++) 
 	{	
+	    String temp = "";
 		String[] parts = lines[i].split(" ");
 		for(int a = 0; a < parts.length;a++)
 		{
 			parts[a]=pigLatin(parts[a]);
+			temp+=parts[a]+" ";
 		}
-		System.out.println(parts[1]);
+	    System.out.println(temp);
 	 	//System.out.println(pigLatin(lines[i]));
 	}
 }
@@ -38,6 +40,18 @@ public String pigLatin(String sWord)
 //precondition: sWord is a valid String of length greater than 0
 //postcondition: returns the pig latin equivalent of sWord
 {
+ 	String[] upperCase = {"A","B","C","D","E","F","G","H","I","J","K","L",
+ 	"M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
+ 	for(int a = 0; a< sWord.length();a++)
+ 	{
+ 		for(int b= 0; b<upperCase.length;b++)
+ 		{
+ 			if(sWord.substring.equals(upperCase[b]))
+ 			{
+ 				
+ 			}
+ 		}
+ 	}
 	if(findFirstVowel(sWord) == -1)
 	{
 		return sWord + "ay";
