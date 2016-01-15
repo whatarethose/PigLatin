@@ -2,6 +2,7 @@ import java.util.*;
 public String[] upperCase = {"A","B","C","D","E","F","G","H","I","J","K","L",
    "M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
 public void setup() {
+	System.out.println(pigLatin("With"));
   String lines[] = loadStrings("LowellHymn.txt");
   System.out.println("there are " + lines.length + " lines");
   for (int i = 0 ; i < lines.length; i++) 
@@ -14,7 +15,6 @@ public void setup() {
       temp+=parts[a]+" ";
     }
       System.out.println(temp);
-     //System.out.println(pigLatin(lines[i]));
   }
 }
 public void draw()
@@ -85,6 +85,7 @@ public String pigLatin(String sWord)
   {
     return "ERROR!";
   }
+
   if(firstCap)
   {
     temp=sWord.substring(0,1).toUpperCase()+sWord.substring(1);
