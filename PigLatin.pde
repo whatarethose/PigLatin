@@ -3,7 +3,6 @@ public String[] upperCase = {"A","B","C","D","E","F","G","H","I","J","K","L",
    "M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
    public String[] punctuation={",","?","/","{","}","'",":",";","[","]"};
 public void setup() {
-	System.out.println(pigLatin("With"));
   String lines[] = loadStrings("LowellHymn.txt");
   System.out.println("there are " + lines.length + " lines");
   for (int i = 0 ; i < lines.length; i++) 
@@ -58,26 +57,36 @@ public boolean findPunctuation(String sWord)
 {
   for(int a =0; a < sWord.length();a++)
   {
+  	boolean temp = false;
   	for(int b= 0; b < punctuation.length;b++)
   	{
   		if(sWord.substring(a,a+1).equals(punctuation[b]))
   		{
-  			return true;
+  			temp = true;
   		}
   	}
+  	if(!temp){return false;}
   }
-  return false;
+  return true;
 }
 public String pigLatin(String sWord)
 //precondition: sWord is a valid String of length greater than 0
 //postcondition: returns the pig latin equivalent of sWord
 {
   String temp = "";
+  String addition="";
   if(sWord.length()==0){return sWord;}
   boolean firstCap = findUpperCase(sWord.substring(0,1));
+  boolean punct = findPunctuation(sWord.substring(sWord.length()-1));
   if(firstCap)
   {
     sWord=sWord.substring(0,1).toLowerCase()+sWord.substring(1);
+  }
+  if(punct)
+  {
+  	addition =sWord.substring(sWord.length()-1);
+  	sWord= sWord.substring(0,sWord.length()-1);
+  	
   }
   if(findFirstVowel(sWord) == -1)
   {
@@ -104,5 +113,9 @@ public String pigLatin(String sWord)
   {
     temp=temp.substring(0,1).toUpperCase()+temp.substring(1);
   }
+  if(punct)
+  	{
+  	temp = temp + addition;
+  	}
  return temp;
 }
